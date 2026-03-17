@@ -22,7 +22,12 @@ public class Kaart
 
   public void setGeldig(LocalDate geldig) { this.geldig = geldig; }
 
-  public boolean isIngecheckt() {return ingecheckt;}
-  }
+  public LocalDate getGeldig() {return geldig;}
 
-  
+  public int getKaartnummer() {return kaartnummer;}
+
+  public boolean isIngecheckt() {return ingecheckt;}
+
+  public void setIngecheckt(boolean ingecheckt) {this.ingecheckt = ingecheckt;}
+}
+
