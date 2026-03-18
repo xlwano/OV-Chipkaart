@@ -15,12 +15,12 @@ public class inchecken
             System.out.println("Kaart " + kaart.getKaartnummer() + " is al ingecheckt.");
             return false;
         }
-        if (kaart.getGeldig().isBefore(LocalDate.now())) {
+        if (kaart.getVervalDatum().isBefore(LocalDate.now())) {
             System.out.println("Kaart " + kaart.getKaartnummer() + " is verlopen.");
             return false;
         }
         if (kaart.getSaldo() < instaptarief) {
-            System.out.println("Onvoldoende saldo. Huidig saldo: " + kaart.getSaldo());
+            System.out.println(kaart.getKaartnummer() + "Onvoldoende saldo. Huidig saldo: " + kaart.getSaldo());
             return false;
         }
 

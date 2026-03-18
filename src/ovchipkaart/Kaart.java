@@ -5,13 +5,13 @@ import java.time.LocalDate;
 public class Kaart
 {
   private double saldo;
-  private LocalDate geldig;
+  private LocalDate vervalDatum;
   private int kaartnummer;
   private boolean ingecheckt;
 
   public Kaart(double saldo, LocalDate geldig, int kaartnummer) {
     this.saldo = saldo;
-    this.geldig = geldig;
+    this.vervalDatum = geldig;
     this.kaartnummer = kaartnummer;
     this.ingecheckt = false;
   }
@@ -20,9 +20,9 @@ public class Kaart
 
   public void setSaldo(double saldo) {this.saldo = saldo;}
 
-  public void setGeldig(LocalDate geldig) { this.geldig = geldig; }
+  public void setVervalDatum(LocalDate vervalDatum) { this.vervalDatum = vervalDatum; }
 
-  public LocalDate getGeldig() {return geldig;}
+  public LocalDate getVervalDatum() {return vervalDatum;}
 
   public int getKaartnummer() {return kaartnummer;}
 
