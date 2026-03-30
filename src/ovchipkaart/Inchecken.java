@@ -2,11 +2,11 @@ package ovchipkaart;
 
 import java.time.LocalDate;
 
-public class inchecken
+public class Inchecken
 {
     double instaptarief;
 
-    public inchecken(double instaptarief) {
+    public Inchecken(double instaptarief) {
         this.instaptarief = instaptarief;
     }
 
@@ -20,7 +20,7 @@ public class inchecken
             return false;
         }
         if (kaart.getSaldo() < instaptarief) {
-            System.out.println(kaart.getKaartnummer() + "Onvoldoende saldo. Huidig saldo: " + kaart.getSaldo());
+            System.out.println("Kaart " + kaart.getKaartnummer() + " Onvoldoende saldo. Huidig saldo: " + kaart.getSaldo());
             return false;
         }
 

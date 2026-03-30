@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Main
 {
     public static void main(String[] args) {
-        inchecken poortje = new inchecken(1.50);
+        Inchecken poortje = new Inchecken(5.00);
 
         // Normaal geval
         Kaart kaart1 = new Kaart(10.00, LocalDate.of(2027, 1, 1), 1001);
