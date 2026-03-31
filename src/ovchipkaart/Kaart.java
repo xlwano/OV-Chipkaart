@@ -8,6 +8,8 @@ public class Kaart
   private LocalDate vervalDatum;
   private int kaartnummer;
   private boolean ingecheckt;
+  private Paal incheckPaal;
+
 
   public Kaart(double saldo, LocalDate geldig, int kaartnummer) {
     this.saldo = saldo;
@@ -18,9 +20,7 @@ public class Kaart
 
   public double getSaldo() {return saldo;}
 
-  public void setSaldo(double saldo) {this.saldo = saldo;}
-
-  public void setVervalDatum(LocalDate vervalDatum) { this.vervalDatum = vervalDatum; }
+  public void setSaldo(double bedrag) {saldo += bedrag;}
 
   public LocalDate getVervalDatum() {return vervalDatum;}
 

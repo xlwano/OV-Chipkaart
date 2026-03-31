@@ -1,6 +1,6 @@
 package ovchipkaart;
 
-public class Uitchecken
+public class Reiziger
 {
 
 }
