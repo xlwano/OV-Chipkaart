@@ -29,5 +29,9 @@ public class Kaart
   public boolean isIngecheckt() {return ingecheckt;}
 
   public void setIngecheckt(boolean ingecheckt) {this.ingecheckt = ingecheckt;}
+
+  public Paal getIncheckPaal() { return incheckPaal; }
+
+  public void setIncheckPaal(Paal paal) { this.incheckPaal = paal; }
 }
 
