@@ -5,8 +5,10 @@ import java.time.LocalDate;
 public class Main
 {
     public static void main(String[] args) {
-        Paal paal1 = new Paal(5.00, "Nijmegen", 8.0, 8.0, 0.30);
-        Paal paal2 = new Paal(5.00, "Arnhem", 6.0, 7.0, 0.30);
+        Locatie nijmegen = new Locatie("Nijmegen",8.0, 8.0);
+        Locatie arnhem = new Locatie("Arnhem", 6.0, 7.0);
+        Paal paal1 = new Paal(5.00, nijmegen, 0.30);
+        Paal paal2 = new Paal(5.00, arnhem, 0.30);
 
         // Inchecken
         Kaart kaart1 = new Kaart(50.0, LocalDate.of(2027, 1, 1), 1001);

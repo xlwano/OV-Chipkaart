@@ -5,18 +5,14 @@ import java.time.LocalDate;
 public class Paal
 {
     private double instaptarief;
-    private String locatie;
-    private double x;
-    private double y;
+    private Locatie locatie;
     private double prijsPerKm;
 
 
-    public Paal(double instaptarief, String locatie, double x, double y, double prijsPerKm)
+    public Paal(double instaptarief, Locatie locatie, double prijsPerKm)
     {
         this.instaptarief = instaptarief;
         this.locatie = locatie;
-        this.x = x;
-        this.y = y;
         this.prijsPerKm = prijsPerKm;
     }
 
@@ -43,7 +39,7 @@ public class Paal
         }
         else
         {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is ingechekt in " + locatie);
+            System.out.println("Kaart " + kaart.getKaartnummer() + " is ingechekt in " + Locatie.getNaam());
             System.out.println("Je saldo is: " + kaart.getSaldo());
             System.out.println();
             kaart.setIncheckPaal(this);
@@ -61,11 +57,11 @@ public class Paal
         }
         else
         {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is uitgecheckt in " + locatie);
+            System.out.println("Kaart " + kaart.getKaartnummer() + " is uitgecheckt in " + Locatie.getNaam());
             Paal incheckPaal = kaart.getIncheckPaal();
 
-            double deltaX = this.x - incheckPaal.x;
-            double deltaY = this.y - incheckPaal.y;
+            double deltaX = this.locatie.getX() - Locatie.getX();
+            double deltaY = this.locatie.getY() - Locatie.getY();
             double afstand = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
 
             double kosten = (afstand * 10) * this.prijsPerKm;
