@@ -2,9 +2,9 @@ package ovchipkaart;
 
 public class Locatie
 {
-    private static String naam;
-    private static double x;
-    private static double y;
+    private String naam;
+    private double x;
+    private double y;
 
     public Locatie(String naam, double x, double y)
     {
@@ -13,15 +13,15 @@ public class Locatie
         this.y = y;
     }
 
-    public static String getNaam() {return naam;}
+    public String getNaam() {return naam;}
 
-    public void setNaam() {this.naam = naam;}
+    public void setNaam(String naam) {this.naam = naam;}
 
-    public static double getX() {return x;}
+    public double getX() {return x;}
 
-    public void setX() {this.x = x;}
+    public void setX(double x) {this.x = x;}
 
-    public static double getY() {return y;}
+    public double getY() {return y;}
 
-    public void setY() {this.y = y;}
+    public void setY(double y) {this.y = y;}
 }

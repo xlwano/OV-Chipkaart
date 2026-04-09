@@ -8,14 +8,13 @@ public class Kaart
   private LocalDate vervalDatum;
   private int kaartnummer;
   private boolean ingecheckt;
-  private Paal incheckPaal;
+  private Locatie incheckLocatie;
 
 
   public Kaart(double saldo, LocalDate geldig, int kaartnummer) {
     this.saldo = saldo;
     this.vervalDatum = geldig;
     this.kaartnummer = kaartnummer;
-    this.ingecheckt = false;
   }
 
   public double getSaldo() {return saldo;}
@@ -30,8 +29,8 @@ public class Kaart
 
   public void setIngecheckt(boolean ingecheckt) {this.ingecheckt = ingecheckt;}
 
-  public Paal getIncheckPaal() { return incheckPaal; }
+  public Locatie getIncheckLocatie() { return incheckLocatie; }
 
-  public void setIncheckPaal(Paal paal) { this.incheckPaal = paal; }
+  public void setIncheckLocatie(Locatie locatie) { this.incheckLocatie = locatie; }
 }
 

@@ -39,10 +39,10 @@ public class Paal
         }
         else
         {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is ingechekt in " + Locatie.getNaam());
+            System.out.println("Kaart " + kaart.getKaartnummer() + " is ingecheckt in " + this.locatie.getNaam());
             System.out.println("Je saldo is: " + kaart.getSaldo());
             System.out.println();
-            kaart.setIncheckPaal(this);
+            kaart.setIncheckLocatie(this.locatie);
             kaart.setIngecheckt(true);
         }
     }
@@ -57,16 +57,15 @@ public class Paal
         }
         else
         {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is uitgecheckt in " + Locatie.getNaam());
-            Paal incheckPaal = kaart.getIncheckPaal();
+            System.out.println("Kaart " + kaart.getKaartnummer() + " is uitgecheckt in " + this.locatie.getNaam());
+            Locatie locatie = kaart.getIncheckLocatie();
 
-            double deltaX = this.locatie.getX() - Locatie.getX();
-            double deltaY = this.locatie.getY() - Locatie.getY();
+            double deltaX = this.locatie.getX() - locatie.getX();
+            double deltaY = this.locatie.getY() - locatie.getY();
             double afstand = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
             double kosten = (afstand * 10) * this.prijsPerKm;
             kaart.setSaldo(-kosten);
-            kaart.setIncheckPaal(null);
+            kaart.setIncheckLocatie(null);
             System.out.println("Je saldo is: " + kaart.getSaldo());
             System.out.println();
             kaart.setIngecheckt(false);
