@@ -24,4 +24,11 @@ public class Locatie
     public double getY() {return y;}
 
     public void setY(double y) {this.y = y;}
+
+    public double berekenAfstand (Locatie locatie) {
+        double deltaX = this.x - locatie.x;
+        double deltaY = this.y - locatie.y;
+        double afstand = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        return afstand;
+    }
 }
