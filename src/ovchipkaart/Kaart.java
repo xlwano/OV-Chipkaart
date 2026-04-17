@@ -7,7 +7,7 @@ public class Kaart
   private double saldo;
   private LocalDate vervalDatum;
   private int kaartnummer;
-  private boolean ingecheckt;
+  private boolean ingecheckt = false;
   private Locatie incheckLocatie;
 
 
@@ -19,7 +19,14 @@ public class Kaart
 
   public double getSaldo() {return saldo;}
 
-  public void setSaldo(double bedrag) {saldo += bedrag;}
+  public void setSaldo(double saldo)
+  {
+    this.saldo = saldo; // voor opwaarderen tot
+  }
+
+  public void verhoogSaldo(double bedrag) {
+    saldo += bedrag; // voor opwaarderen met
+  }
 
   public LocalDate getVervalDatum() {return vervalDatum;}
 

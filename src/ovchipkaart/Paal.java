@@ -63,7 +63,7 @@ public class Paal
 
             double afstand = this.locatie.berekenAfstand(locatie);
             double kosten = Math.round(((afstand * 10) * this.prijsPerKm) * 100.0) / 100.0;
-            kaart.setSaldo(-kosten);
+            kaart.verhoogSaldo(-kosten);
             kaart.setIncheckLocatie(null);
             System.out.println("Je saldo is: " + kaart.getSaldo());
             System.out.println();
