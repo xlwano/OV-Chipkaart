@@ -1,73 +1,44 @@
 package ovchipkaart;
-
 import java.time.LocalDate;
-
-public class Paal
-{
+public class Paal {
     private double instaptarief;
     private Locatie locatie;
-    private double prijsPerKm;
+    private double tariefperkm;
 
-
-    public Paal(double instaptarief, Locatie locatie, double prijsPerKm)
-    {
+    public Paal(double instaptarief, Locatie locatie, double tariefperkm) {
         this.instaptarief = instaptarief;
         this.locatie = locatie;
-        this.prijsPerKm = prijsPerKm;
+        this.tariefperkm = tariefperkm;
     }
 
-    public void checkIn(Kaart kaart)
-    {
-        if (kaart.isIngecheckt())
-        {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is al ingecheckt.");
-            System.out.println();
+    public double getInstaptarief() { return instaptarief; }
+    public Locatie getLocatie() { return locatie; }
+    public double getTariefperkm() { return tariefperkm; }
+
+    public void checkIn(Ovchipkaart kaart) {
+        if (kaart.getVervaldatum().isBefore(LocalDate.now())) {
+            System.out.println("inchecken mislukt, datum is verlopen");
             return;
         }
-        if (kaart.getVervalDatum().isBefore(LocalDate.now()))
-        {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is verlopen.");
-            System.out.println();
+        if (kaart.isIngecheckt()) {
+            System.out.println("inchecken mislukt, al ingecheckt");
             return;
         }
-        if (kaart.getSaldo() < instaptarief)
-        {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " heeft onvoldoende saldo.");
-            System.out.println("Je saldo is: " + kaart.getSaldo());
-            System.out.println();
+        if (kaart.getSaldo() < instaptarief) {
+            System.out.println("inchecken mislukt, onvoldoende saldo");
             return;
         }
-        else
-        {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is ingecheckt in " + this.locatie.getNaam());
-            System.out.println("Je saldo is: " + kaart.getSaldo());
-            System.out.println();
-            kaart.setIncheckLocatie(this.locatie);
-            kaart.setIngecheckt(true);
-        }
+        kaart.checkIn(this.locatie, instaptarief);
+        System.out.println("inchecken voldaan");
     }
 
-    public void checkUit(Kaart kaart)
-    {
-        if (!kaart.isIngecheckt())
-        {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is niet ingecheckt.");
-            System.out.println();
+    public void checkOut(Ovchipkaart kaart) {
+        if (!kaart.isIngecheckt()) {
+            System.out.println("Uitchecken mislukt: niet ingecheckt.");
             return;
         }
-        else
-        {
-            System.out.println("Kaart " + kaart.getKaartnummer() + " is uitgecheckt in " + this.locatie.getNaam());
-            Locatie locatie = kaart.getIncheckLocatie();
-
-
-            double afstand = this.locatie.berekenAfstand(locatie);
-            double kosten = Math.round(((afstand * 10) * this.prijsPerKm) * 100.0) / 100.0;
-            kaart.verhoogSaldo(-kosten);
-            kaart.setIncheckLocatie(null);
-            System.out.println("Je saldo is: " + kaart.getSaldo());
-            System.out.println();
-            kaart.setIngecheckt(false);
-        }
+        double kosten = locatie.afstandBerekenen(kaart.getIncheckLocatie()) * tariefperkm;
+        kaart.checkOut(kosten);
+        System.out.println("Uitchecken geslaagd. Kosten: " + kosten);
     }
 }

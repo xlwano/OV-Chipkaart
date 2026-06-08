@@ -1,34 +1,26 @@
 package ovchipkaart;
-
-public class Locatie
-{
+public class Locatie {
     private String naam;
     private double x;
     private double y;
-
-    public Locatie(String naam, double x, double y)
-    {
+    public Locatie(String naam, double x, double y) {
         this.naam = naam;
         this.x = x;
         this.y = y;
     }
 
-    public String getNaam() {return naam;}
+    public String getNaam() {
+        return naam; }
 
-    public void setNaam(String naam) {this.naam = naam;}
+    public double getX() {
+        return x; }
 
-    public double getX() {return x;}
+    public double getY() {
+        return y; }
 
-    public void setX(double x) {this.x = x;}
-
-    public double getY() {return y;}
-
-    public void setY(double y) {this.y = y;}
-
-    public double berekenAfstand (Locatie locatie) {
-        double deltaX = this.x - locatie.x;
-        double deltaY = this.y - locatie.y;
-        double afstand = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        return afstand;
+    public double afstandBerekenen(Locatie andereLocatie) {
+        double a = this.x - andereLocatie.getX();
+        double b = this.y - andereLocatie.getY();
+        return Math.sqrt(a * a + b * b);
     }
 }
